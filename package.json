@@ -1,0 +1,27 @@
+{
+  "name": "battleship-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theDoorKeeper/Battleship-Game.git"
+  },
+  "author": "Boumaraf Chakib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theDoorKeeper/Battleship-Game/issues"
+  },
+  "homepage": "https://github.com/theDoorKeeper/Battleship-Game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
