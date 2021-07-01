@@ -3,8 +3,8 @@ const createShip = (name, length, coordinates) => {
     const hitArray = [];
 
         const hit = (hitCoordinates) => {
-            coordinates.forEach(element => {
-                if (element===hitCoordinates){
+            coordinates.forEach(shipSquare => {
+                if (shipSquare === hitCoordinates){
                     hitArray.push(hitCoordinates)
                 }
             });
