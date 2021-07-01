@@ -37,4 +37,13 @@ test('Works with single index arrays (hit)', () => {
     expect( submarine.isSunk() ).toBe( false );
   });
 
+
+  test('correctly return name', () => {
+    const coordinates = [25,24,23];
+    const name = "submarine" ;
+    const length = 1;
+    const submarine = createShip(name,length,coordinates);
+    submarine.hit(23);
+    expect( submarine.name ).toBe( "submarine" );
+  });
   
