@@ -1,5 +1,5 @@
  const createShip = (name, length, coordinates) => {
-
+    const shipCoordinates = [...coordinates]
     const hitArray = [];
 
         const hit = (hitCoordinates) => {
@@ -18,7 +18,7 @@
 
         }
         
-        return {name, hit, isSunk}
+        return {name, hit, isSunk, shipCoordinates}
 
 }
 
