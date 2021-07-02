@@ -31,7 +31,7 @@ const receiveAttack = (hitCoordinates) =>{
       
  }
 
- isGameLost = () =>{
+ isGameLost = () => {
     const sunkArray = [];
     shipArray.forEach(ship =>{
         if(ship.isSunk() === true){
@@ -46,5 +46,7 @@ const receiveAttack = (hitCoordinates) =>{
     }
 }
 
-    
+    return {isGameLost,receiveAttack,placeShip,missArray}
 }
+
+export{createGameboard}
