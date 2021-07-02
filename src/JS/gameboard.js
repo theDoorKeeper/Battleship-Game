@@ -4,15 +4,38 @@ const createGameboard = () => {
     const shipArray = [];
     const missArray = [];
 
-    const placeShip = (name,coordinates) => {
+    const placeShip = (name,coordinate) => {
         if (name === "submarine"){
-          const ship = createShip(name,2,coordinates);
+            const  length = 2;
+            const coordinateArray = getCoordinates(coordinate, length)
+          const ship = createShip(name,length,coordinateArray);
           shipArray.push(ship);  
         }
         else if (name === "battleship"){
-          const ship = createShip(name,8,coordinates);
+          const  length = 6;
+          const coordinateArray = getCoordinates(coordinate, length)
+          const ship = createShip(name,length,coordinateArray);
           shipArray.push(ship)
         }
+}
+
+const getCoordinates = (coordinate, length) =>{
+    let coordinateArray =[];
+
+    if (coordinate+length > 100){
+
+        for (let i = 0; i < length; i--) {                  
+            coordinateArray.push(coordinate + i)
+        }
+
+    }
+    else {
+        for (let i = 0; i < length; i++) {                  
+            coordinateArray.push(coordinate + i)
+        }
+
+    }
+    return coordinateArray
 }
 
 const receiveAttack = (hitCoordinates) =>{
@@ -46,7 +69,7 @@ const receiveAttack = (hitCoordinates) =>{
     }
 }
 
-    return {isGameLost,receiveAttack,placeShip,missArray}
+    return {isGameLost,receiveAttack,placeShip,missArray,shipArray}
 }
 
 export{createGameboard}
