@@ -54,7 +54,7 @@ const receiveAttack = (hitCoordinates) =>{
       
  }
 
- isGameLost = () => {
+ const isGameLost = () => {
     const sunkArray = [];
     shipArray.forEach(ship =>{
         if(ship.isSunk() === true){
