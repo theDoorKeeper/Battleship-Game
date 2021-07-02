@@ -1,7 +1,8 @@
 import { createShip } from "./ship"
 
 const createGameboard = () => {
-    const shipArray =[];
+    const shipArray = [];
+    const missArray = [];
 
     const placeShip = (name,coordinates) => {
         if (name === "submarine"){
@@ -13,6 +14,22 @@ const createGameboard = () => {
           shipArray.push(ship)
         }
 }
+
+const receiveAttack = (hitCoordinates) =>{
+    let miss = true;
+ 
+     shipArray.forEach(ship=>{
+         if (ship.coordinates.incude(hitCoordinates)){
+             ship.hit(hitCoordinates);
+             let miss=false;
+         }
+     })
+ 
+     if (miss){
+         missArray.push(hitCoordinates)
+     }      
+      
+ }
 
     
 }
