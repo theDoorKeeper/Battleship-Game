@@ -42,9 +42,9 @@ const receiveAttack = (hitCoordinates) =>{
     let miss = true;
  
      shipArray.forEach(ship=>{
-         if (ship.coordinates.incude(hitCoordinates)){
+         if (ship.shipCoordinates.includes(hitCoordinates)){
              ship.hit(hitCoordinates);
-             let miss=false;
+            miss=false;
          }
      })
  
