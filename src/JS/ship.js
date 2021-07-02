@@ -6,7 +6,6 @@
             coordinates.forEach(shipSquare => {
                 if (shipSquare === hitCoordinates){
                     hitArray.push(hitCoordinates);
-                    return hitArray
                 }
             });
         }
