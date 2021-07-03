@@ -1,9 +1,7 @@
 import { createGameboard } from "../JS/gameboard";
 
 
-test('Works with single index arrays (hit)', () => {
-    const coordinates = [25];
-    const name = "submarine" ;
+test('sinking a single ship when shipArray contains only one', () => {
     const testingGameboard = createGameboard();
     testingGameboard.placeShip("submarine",22)
     testingGameboard.receiveAttack(22);
@@ -11,3 +9,42 @@ test('Works with single index arrays (hit)', () => {
 
     expect( testingGameboard.isGameLost() ).toBe( true );
   });
+
+
+test('sinking a single ship when shipArray contains multipleOnes', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("submarine",22);
+  testingGameboard.placeShip("battleship",10);
+  testingGameboard.receiveAttack(22);
+  testingGameboard.receiveAttack(23);
+
+  expect( testingGameboard.isGameLost() ).toBe( false );
+});
+
+test('sinking all the  ships when shipArray contains multipleOnes', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("submarine",22);
+  testingGameboard.placeShip("battleship",10);
+  testingGameboard.receiveAttack(22);
+  testingGameboard.receiveAttack(23);
+  testingGameboard.receiveAttack(10);
+  testingGameboard.receiveAttack(11);
+  testingGameboard.receiveAttack(12);
+  testingGameboard.receiveAttack(13);
+  testingGameboard.receiveAttack(14);
+  testingGameboard.receiveAttack(15);
+
+
+  expect( testingGameboard.isGameLost() ).toBe( true );
+});
+
+test('missing shots correctly display', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("battleship",10);
+  testingGameboard.receiveAttack(22);
+  testingGameboard.receiveAttack(23);
+  testingGameboard.receiveAttack(10);
+
+
+  expect( testingGameboard.missArray ).toEqual( [22,23] );
+});
