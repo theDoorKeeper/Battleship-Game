@@ -1,8 +1,14 @@
 import { createGameboard } from "./gameboard"
 
 const createPayer = (playerName) =>{
-    let playerBoard = createGameboard();
+    const playerBoard = createGameboard();
 
-    return {playerBoard, playerName}
+    const hasLost = () => {
+        if ( playerBoard.isGamelost() ){
+            return true
+        }
+        else return false
+    }
+    return {playerBoard, playerName, hasLost}
 
 }
