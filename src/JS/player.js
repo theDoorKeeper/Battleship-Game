@@ -10,11 +10,16 @@ const createPlayer = (playerName) =>{
         else return false
     }
    
-
-
     const receiveAttack = (hitCoordinates)=>{
         playerBoard.receiveAttack(hitCoordinates)
     }
+
+    
+    const placeShip = (name,coordinates)=>{
+        playerBoard.placeShip(name,coordinates)
+    }
+
+
      return {playerName, hasLost}
 }
 
