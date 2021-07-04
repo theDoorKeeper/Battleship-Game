@@ -1,14 +1,21 @@
 import { createGameboard } from "./gameboard"
 
-const createPayer = (playerName) =>{
+const createPlayer = (playerName) =>{
     const playerBoard = createGameboard();
 
     const hasLost = () => {
-        if ( playerBoard.isGamelost() ){
+        if ( playerBoard.isGameLost() ){
             return true
         }
         else return false
     }
-    return {playerBoard, playerName, hasLost}
+   
 
+
+    const receiveAttack = (hitCoordinates)=>{
+        playerBoard.receiveAttack(hitCoordinates)
+    }
+     return {playerName, hasLost}
 }
+
+export {createPlayer}
