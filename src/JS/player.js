@@ -3,6 +3,14 @@ import { createGameboard } from "./gameboard"
 const createPlayer = (playerName) =>{
     const playerBoard = createGameboard();
 
+    const getMissArray =()=>{
+        return playerBoard.missArray
+    }
+
+    const getShipArray =()=>{
+        return playerBoard.shipArray
+    }
+
     const hasLost = () => {
         if ( playerBoard.isGameLost() ){
             return true
@@ -14,13 +22,13 @@ const createPlayer = (playerName) =>{
         playerBoard.receiveAttack(hitCoordinates)
     }
 
-    
+
     const placeShip = (name,coordinates)=>{
         playerBoard.placeShip(name,coordinates)
     }
 
 
-     return {playerName, hasLost}
+     return {playerName, hasLost, placeShip, receiveAttack, getMissArray, getShipArray}
 }
 
 export {createPlayer}
