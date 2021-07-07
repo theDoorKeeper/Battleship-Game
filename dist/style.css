@@ -1,0 +1,11 @@
+.gameboard-container{
+    border: black 1px solid;
+    width: 80%;
+    display: flex;
+    padding: 15px;
+}
+
+.gameboard{
+    width: 45%;
+    border: red 1px solid;
+} 
