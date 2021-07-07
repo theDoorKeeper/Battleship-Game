@@ -35,6 +35,7 @@ module: {
     }
   ]
 },
+devtool: 'inline-source-map',
 
   // Default mode for Webpack is production.
   // Depending on mode Webpack will apply different things
