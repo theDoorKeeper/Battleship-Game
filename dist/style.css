@@ -1,11 +1,23 @@
-.gameboard-container{
+#gameboard-container{
+    margin: auto;
     border: black 1px solid;
     width: 80%;
+    height: 500px;
     display: flex;
     padding: 15px;
+    justify-content: space-around;
 }
 
 .gameboard{
-    width: 45%;
+    width: 510px;
+    height: 510px;
     border: red 1px solid;
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-around;
 } 
+.square{
+    height:48px;
+    width: 48px;
+    border: black 1px solid;
+}
