@@ -20,7 +20,7 @@ const renderBoards = (player) =>{
 
   const displayShips = (player) =>{   
       const squares = document.querySelectorAll(`.${player.playerName}square`)
-      
+      const displayArray=[];
       player.getShipArray().forEach(ship=>{
           displayArray.push(...ship.shipCoordinates)
       })
@@ -38,7 +38,7 @@ const renderBoards = (player) =>{
         const squares = document.querySelectorAll(`.${player.playerName}square`);
         squares.forEach(square=>{
             if(player.getHitArray().includes(Number(square.id))){
-                square.textContent+="HIT"
+                square.setAttribute("style", "background-color: red;")
             }
           }) 
         }
