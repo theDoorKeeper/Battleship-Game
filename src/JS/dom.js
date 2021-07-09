@@ -12,6 +12,9 @@ const renderBoards = (playerOne,playerTwo) =>{
  const secondGameboard = document.querySelector("#computerGameboard");
  for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement("div",i,[`${playerTwo.playerName}square`],null);
+    square.addEventListener("click",e => {
+        attack(playerTwo,Number(e.target.id))
+    })
     secondGameboard.appendChild(square);
 }
 
@@ -35,6 +38,7 @@ const renderBoards = (playerOne,playerTwo) =>{
 
     const attack = (player,coordinates) =>{
         player.receiveAttack(coordinates);
+        console.log(player.playerName,coordinates)
         const squares = document.querySelectorAll(`.${player.playerName}square`);
         squares.forEach(square=>{
             if(player.getHitArray().includes(Number(square.id))){
