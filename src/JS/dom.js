@@ -1,15 +1,19 @@
 import {createHtmlElement} from './createHtmlElement'
 
-const renderBoards = () =>{
+const renderBoards = (player) =>{
+
+
     const firstGameboard = document.querySelector("#playerGameboard");
     for (let i = 1; i <= 100; i++) {
-        const square = createHtmlElement("div",i,['square'],null);
+        const square = createHtmlElement("div",i,[`${player.playerName}square`],null);
         firstGameboard.appendChild(square);
- }
+        }
+
+
 
  const secondGameboard = document.querySelector("#computerGameboard");
  for (let i = 1; i <= 100; i++) {
-    const square = createHtmlElement("div",i,['square'],null);
+    const square = createHtmlElement("div",i,['computersquare'],null);
     secondGameboard.appendChild(square);
 }
 
@@ -17,8 +21,7 @@ const renderBoards = () =>{
 
 
   const displayShips = (player) =>{   
-      const squares = document.querySelectorAll(".square")
-
+      const squares = document.querySelectorAll(`.${player.playerName}square`)
       const displayArray = [];
       player.getShipArray().forEach(ship=>{
           displayArray.push(...ship.shipCoordinates)
@@ -29,6 +32,11 @@ const renderBoards = () =>{
             square.textContent = "Ship"
         }
       }) 
+    }
+
+
+    const attack = (player,coordinates) =>{
+        player.receiveAttack
     }
  
     export {displayShips,renderBoards}
