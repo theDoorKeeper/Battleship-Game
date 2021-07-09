@@ -18,7 +18,7 @@
 
         }
         
-        return {name, hit, isSunk, shipCoordinates}
+        return {name, hit, isSunk, shipCoordinates, hitArray}
 
 }
 
