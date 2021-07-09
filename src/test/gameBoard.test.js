@@ -48,3 +48,20 @@ test('missing shots correctly display', () => {
 
   expect( testingGameboard.missArray ).toEqual( [22,23] );
 });
+test('getHitArray returns the correct information', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("submarine",22);
+  testingGameboard.placeShip("battleship",10);
+  testingGameboard.receiveAttack(22);
+  testingGameboard.receiveAttack(23);
+  testingGameboard.receiveAttack(10);
+  testingGameboard.receiveAttack(11);
+  testingGameboard.receiveAttack(12);
+  testingGameboard.receiveAttack(13);
+  testingGameboard.receiveAttack(14);
+  testingGameboard.receiveAttack(18);
+  testingGameboard.receiveAttack(15);
+
+
+  expect( testingGameboard.getHitArray() ).toEqual( [22,23,10,11,12,13,14,15] );
+});

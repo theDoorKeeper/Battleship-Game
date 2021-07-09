@@ -57,7 +57,7 @@ const receiveAttack = (hitCoordinates) =>{
  const getHitArray = ()=>{
     const hitArray = [];
      shipArray.forEach(ship=>{
-         hitArray.push(ship.hitArray)
+         hitArray.push(...ship.hitArray)
      })
      return hitArray
  }
