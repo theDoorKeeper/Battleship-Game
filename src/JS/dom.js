@@ -1,17 +1,17 @@
 import {createHtmlElement} from './createHtmlElement'
 
-const renderBoards = (player) =>{
+const renderBoards = (playerOne,playerTwo) =>{
 
     const firstGameboard = document.querySelector("#playerGameboard");
     for (let i = 1; i <= 100; i++) {
-        const square = createHtmlElement("div",i,[`${player.playerName}square`],null);
+        const square = createHtmlElement("div",i,[`${playerOne.playerName}square`],null);
         firstGameboard.appendChild(square);
         }
 
 
  const secondGameboard = document.querySelector("#computerGameboard");
  for (let i = 1; i <= 100; i++) {
-    const square = createHtmlElement("div",i,['computersquare'],null);
+    const square = createHtmlElement("div",i,[`${playerTwo.playerName}square`],null);
     secondGameboard.appendChild(square);
 }
 
