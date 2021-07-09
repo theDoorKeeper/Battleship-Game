@@ -28,3 +28,12 @@ test('sinking a single ship when shipArray contains only one', () => {
 
     expect( testPlayer.getMissArray() ).toEqual( [22,23] );
   });
+
+  test('hitArray dispaying coordinates of hit ships', () => {
+    const testPlayer = createPlayer("tester")
+    testPlayer.placeShip("battleship",10);
+    testPlayer.receiveAttack(10);
+    testPlayer.receiveAttack(11);
+
+    expect( testPlayer.getHitArray() ).toEqual( [10,11] );
+  });

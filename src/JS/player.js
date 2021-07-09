@@ -31,7 +31,7 @@ const createPlayer = (playerName) =>{
     }
 
 
-     return {playerName, hasLost, placeShip, receiveAttack, getMissArray, getShipArray, getHitArray()}
+     return {playerName, hasLost, placeShip, receiveAttack, getMissArray, getShipArray, getHitArray}
 }
 
 export {createPlayer}
