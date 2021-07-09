@@ -15,9 +15,18 @@
     display: flex;
     flex-wrap: wrap;  
     justify-content: space-around;
+    
 } 
-.square{
+.humansquare{
     height:48px;
     width: 48px;
     border: black 1px solid;
+    
+}
+
+.computersquare{
+    height:48px;
+    width: 48px;
+    border: black 1px solid;
+    cursor: pointer;
 }
