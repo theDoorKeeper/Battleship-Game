@@ -77,7 +77,7 @@ const receiveAttack = (hitCoordinates) =>{
     }
 }
 
-    return {isGameLost,receiveAttack,placeShip,missArray,shipArray,hitArray}
+    return {isGameLost,receiveAttack,placeShip,missArray,shipArray,getHitArray}
 }
 
 export{createGameboard}
