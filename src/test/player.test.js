@@ -29,7 +29,7 @@ test('sinking a single ship when shipArray contains only one', () => {
     expect( testPlayer.getMissArray() ).toEqual( [22,23] );
   });
 
-  test('hitArray dispaying coordinates of hit ships', () => {
+  test('hitArray dispaying hit coordinates of hit ships', () => {
     const testPlayer = createPlayer("tester")
     testPlayer.placeShip("battleship",10);
     testPlayer.receiveAttack(10);
@@ -37,3 +37,18 @@ test('sinking a single ship when shipArray contains only one', () => {
 
     expect( testPlayer.getHitArray() ).toEqual( [10,11] );
   });
+
+
+  test('hitArray dispaying hit coordinates of mutliple ships', () => {
+    const testPlayer = createPlayer("tester")
+    testPlayer.placeShip("battleship",10);
+    testPlayer.placeShip("submarine",5);
+    testPlayer.receiveAttack(10);
+    testPlayer.receiveAttack(11);
+    testPlayer.receiveAttack(5);
+    testPlayer.receiveAttack(6);
+    testPlayer.receiveAttack(80);
+
+    expect( testPlayer.getHitArray() ).toEqual( [10,11,5,6] );
+  });
+
