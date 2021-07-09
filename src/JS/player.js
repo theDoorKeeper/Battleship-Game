@@ -21,6 +21,9 @@ const createPlayer = (playerName) =>{
     const receiveAttack = (hitCoordinates)=>{
         playerBoard.receiveAttack(hitCoordinates)
     }
+    const getHitArray = ()=>{
+        return playerBoard.getHitArray()
+    }
 
 
     const placeShip = (name,coordinates)=>{
@@ -28,7 +31,7 @@ const createPlayer = (playerName) =>{
     }
 
 
-     return {playerName, hasLost, placeShip, receiveAttack, getMissArray, getShipArray}
+     return {playerName, hasLost, placeShip, receiveAttack, getMissArray, getShipArray, getHitArray()}
 }
 
 export {createPlayer}
