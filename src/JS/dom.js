@@ -71,6 +71,15 @@ const renderBoards = (playerOne,playerTwo) =>{
             }
 
 
+            const playRound = (playerTwo,coordinates) =>{
+                const squares = document.querySelectorAll(`.${playerTwo.playerName}square`);
+                attack(playerTwo,coordinates)
+                displayMissArray(squares,playerTwo);
+                displaySunkShips(squares,playerTwo);
+                
+            }
+
+
  
     export {displayShips,renderBoards}
 
