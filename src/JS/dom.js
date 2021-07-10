@@ -55,7 +55,6 @@ const renderBoards = (playerOne,playerTwo) =>{
                   }) 
             }
 
-
             const displaySunkShips = (squares,player) =>{
                 const sunkArray=[];
                 player.getShipArray().forEach(ship=>{
@@ -72,27 +71,6 @@ const renderBoards = (playerOne,playerTwo) =>{
             }
 
 
-        const playRound = (playerTwo,coordinates) =>{
-            const squares = document.querySelectorAll(`.${playerTwo.playerName}square`);
-            
-            playerTwo.receiveAttack(coordinates);
-
-            squares.forEach(square=>{
-                if(player.getMissArray().includes(Number(square.id))){
-                    square.textContent="X"
-                }
-              }) 
-              
-              playerTwo.getShipArray().forEach(ship=>{
-                  if(ship.isSunk()){
-                    sunkArray.push(...ship.shipCoordinates)
-                  }
-              })
-            
-
-
-
-        }
  
     export {displayShips,renderBoards}
 
