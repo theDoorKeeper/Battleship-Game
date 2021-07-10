@@ -13,7 +13,7 @@ const renderBoards = (playerOne,playerTwo) =>{
  for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement("div",i,[`${playerTwo.playerName}square`],null);
     square.addEventListener("click",e => {
-        attack(playerTwo,Number(e.target.id))
+        playRound(playerTwo,Number(e.target.id))
     })
     secondGameboard.appendChild(square);
 }
@@ -69,7 +69,6 @@ const renderBoards = (playerOne,playerTwo) =>{
                 })
               
             }
-
 
             const playRound = (playerTwo,coordinates) =>{
                 const squares = document.querySelectorAll(`.${playerTwo.playerName}square`);
