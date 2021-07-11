@@ -16,6 +16,7 @@ const renderBoards = (playerOne,playerTwo) =>{
         if( !e.target.classList.contains("clicked" ) && !isGameOver(playerOne,playerTwo)){
           playRound(playerTwo,Number(e.target.id));
             e.target.classList.add("clicked");
+            isGameOver(playerOne, playerTwo)
         }
                
     })
