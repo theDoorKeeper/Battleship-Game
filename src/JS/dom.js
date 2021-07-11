@@ -13,7 +13,11 @@ const renderBoards = (playerOne,playerTwo) =>{
  for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement("div",i,[`${playerTwo.playerName}square`],null);
     square.addEventListener("click",e => {
-        playRound(playerTwo,Number(e.target.id))
+        if( !e.target.classList.contains("clicked" )){
+          playRound(playerTwo,Number(e.target.id));
+            e.target.classList.add("clicked");
+        }
+               
     })
     secondGameboard.appendChild(square);
 }
