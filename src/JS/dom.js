@@ -75,11 +75,11 @@ const renderBoards = (playerOne,playerTwo) =>{
             }
             const isGameOver = (playerOne, playerTwo)=>{
                     if (playerOne.hasLost()){
-                        alert(`${playerOne} has won  !`)
+                        alert(`${playerOne.playerName} has won  !`)
                         return true
                     }
                     else if (playerTwo.hasLost()){
-                        alert(`${playerTwo} has won !`);
+                        alert(`${playerTwo.playerName} has won !`);
                         return true
                     }
                     else {
