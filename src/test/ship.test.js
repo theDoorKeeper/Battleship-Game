@@ -57,7 +57,6 @@ test('Works with single index arrays (hit)', () => {
     const length = 1;
     const submarine = createShip(name,length,coordinates);
     submarine.hit(23);
-    submarine.hit(24);
-    expect( submarine.hitArray ).toEqual([23,24] );
+    expect( submarine.name ).toBe( "submarine" );
   });
   

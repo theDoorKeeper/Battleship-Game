@@ -1,6 +1,18 @@
 import { createGameboard } from "../JS/gameboard";
 
 
+
+test('works with 0 coordinate', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("submarine",0)
+  testingGameboard.receiveAttack(0);
+  testingGameboard.receiveAttack(1);
+  expect( testingGameboard.getHitArray() ).toEqual( [0,1] );
+});
+
+
+
+
 test('sinking a single ship when shipArray contains only one', () => {
     const testingGameboard = createGameboard();
     testingGameboard.placeShip("submarine",22)
