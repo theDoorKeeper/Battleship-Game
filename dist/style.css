@@ -17,16 +17,9 @@
     justify-content: space-around;
     
 } 
-.humansquare{
-    height:48px;
+.gameboard>*{
+        height:48px;
     width: 48px;
     border: black 1px solid;
-    
-}
-
-.computersquare{
-    height:48px;
-    width: 48px;
-    border: black 1px solid;
-    cursor: pointer;
+       cursor: pointer;
 }
