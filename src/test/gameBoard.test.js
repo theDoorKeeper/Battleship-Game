@@ -2,12 +2,25 @@ import { createGameboard } from "../JS/gameboard";
 
 
 
-test('works with 0 coordinate', () => {
+test('works with (0) coordinate', () => {
   const testingGameboard = createGameboard();
   testingGameboard.placeShip("submarine",0)
   testingGameboard.receiveAttack(0);
   testingGameboard.receiveAttack(1);
   expect( testingGameboard.getHitArray() ).toEqual( [0,1] );
+});
+
+test('works with (100) coordinate', () => {
+  const testingGameboard = createGameboard();
+  testingGameboard.placeShip("battleship",100)
+  testingGameboard.receiveAttack(100);
+  testingGameboard.receiveAttack(99);
+  testingGameboard.receiveAttack(98);
+  testingGameboard.receiveAttack(97);
+  testingGameboard.receiveAttack(96);
+  testingGameboard.receiveAttack(95);
+
+  expect( testingGameboard.getHitArray() ).toEqual( [100,99,98,97,96,95] );
 });
 
 
