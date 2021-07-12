@@ -3,16 +3,16 @@ import {createHtmlElement} from './createHtmlElement'
 const renderBoards = (playerOne,playerTwo) =>{
     const gameBoardContainer = document.querySelector("#gameboard-container");
 
-    const firstGameboard = createHtmlElement(div,`${playerOne.playerName}Gameboard`,['gameboard'],null);
+    const firstGameboard = createHtmlElement('div',`${playerOne.playerName}Gameboard`,['gameboard'],null);
     gameBoardContainer.appendChild(firstGameboard);
-    
+
     for (let i = 1; i <= 100; i++) {
         const square = createHtmlElement("div",i,[`${playerOne.playerName}square`],null);
         firstGameboard.appendChild(square);
         }
 
 
-    const secondGameboard = createHtmlElement(div,`${playerTwo.playerName}Gameboard`,['gameboard'],null);
+    const secondGameboard = createHtmlElement('div',`${playerTwo.playerName}Gameboard`,['gameboard'],null);
     gameBoardContainer.appendChild(secondGameboard);
 
     for (let i = 1; i <= 100; i++) {
