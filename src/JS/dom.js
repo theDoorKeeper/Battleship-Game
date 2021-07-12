@@ -1,16 +1,21 @@
 import {createHtmlElement} from './createHtmlElement'
 
 const renderBoards = (playerOne,playerTwo) =>{
+    const gameBoardContainer = document.querySelector("#gameboard-container");
 
-    const firstGameboard = document.querySelector("#playerGameboard");
+    const firstGameboard = createHtmlElement(div,`${playerOne.playerName}Gameboard`,['gameboard'],null);
+    gameBoardContainer.appendChild(firstGameboard);
+    
     for (let i = 1; i <= 100; i++) {
         const square = createHtmlElement("div",i,[`${playerOne.playerName}square`],null);
         firstGameboard.appendChild(square);
         }
 
 
- const secondGameboard = document.querySelector("#computerGameboard");
- for (let i = 1; i <= 100; i++) {
+    const secondGameboard = createHtmlElement(div,`${playerTwo.playerName}Gameboard`,['gameboard'],null);
+    gameBoardContainer.appendChild(secondGameboard);
+
+    for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement("div",i,[`${playerTwo.playerName}square`],null);
     square.addEventListener("click",e => {
         if( !e.target.classList.contains("clicked" ) && !isGameOver(playerOne,playerTwo)){
@@ -21,6 +26,8 @@ const renderBoards = (playerOne,playerTwo) =>{
                
     })
     secondGameboard.appendChild(square);
+
+    
 }
 
 }
@@ -94,6 +101,10 @@ const renderBoards = (playerOne,playerTwo) =>{
                 displayMissArray(squares,playerTwo);
                 displaySunkShips(squares,playerTwo);
                 
+            }
+
+            const placeShip =(name,player)=>{
+                player.placeShip("name")
             }
 
 
