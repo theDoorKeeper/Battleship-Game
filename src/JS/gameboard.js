@@ -24,8 +24,8 @@ const getCoordinates = (coordinate, length) =>{
 
     if (coordinate+length > 100){
 
-        for (let i = 0; i < length; i--) {                  
-            coordinateArray.push(coordinate + i)
+        for (let i = 0; i < length; i++) {                  
+            coordinateArray.push(coordinate - i)
         }
 
     }
