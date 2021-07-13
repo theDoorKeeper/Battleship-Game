@@ -1,3 +1,4 @@
+import { getCoordinates } from "../Helper functions/getCoordinates";
 import { createShip } from "./ship"
 
 const createGameboard = () => {
