@@ -1,4 +1,5 @@
 import { getCoordinates } from "../Helper functions/getCoordinates";
+import { getLength } from "../Helper functions/getLength";
 import { createShip } from "./ship"
 
 const createGameboard = () => {
@@ -6,18 +7,10 @@ const createGameboard = () => {
     const missArray = [];
 
     const placeShip = (name,coordinate) => {
-        if (name === "submarine"){
-            const  length = 2;
-            const coordinateArray = getCoordinates(coordinate, length)
-          const ship = createShip(name,length,coordinateArray);
-          shipArray.push(ship);  
-        }
-        else if (name === "battleship"){
-          const  length = 6;
+          const length = getLength(name);
           const coordinateArray = getCoordinates(coordinate, length)
           const ship = createShip(name,length,coordinateArray);
-          shipArray.push(ship)
-        }
+          shipArray.push(ship);  
 }
 
 const receiveAttack = (hitCoordinates) =>{
