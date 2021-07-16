@@ -169,11 +169,17 @@ const renderBoards = (playerOne,playerTwo) =>{
                     }
                     
             }
-            const playRound = (player, coordinates) =>{
+            const playRound = (player, coordinate) =>{
                 const squares = document.querySelectorAll(`.${player.playerName}square`);
-                attack(player,coordinates)
+                attack(player,coordinate)
                 displayMissArray(squares,player);
                 displaySunkShips(squares,player);
+            }
+
+            const computerRound =(player,coordinate)=>{
+                if (!player.getMissArray().includes(coordinate) && !player.getHitArray().includes(coordinate)){
+                    playRound(player,coordinate)
+                }
             }
 
             const startGame = (playerOne,playerTwo)=>{
