@@ -1,20 +1,21 @@
-import { attack, displayShips, renderBoards } from "./dom";
+import {displayShips, renderBoards, renderStartingPage } from "./dom";
 import { createPlayer } from "./player";
 
 
 
 
 const game = () =>{
-    const human = createPlayer(prompt("choose a name"));
-    const computer = createPlayer("computer");
+/*     const human = createPlayer(prompt("choose a name"));
+    const computer = createPlayer("computer"); */
     renderBoards(human,computer);
     human.placeShip("submarine",12);
     human.placeShip("battleship",20);
-    computer.placeShip("sumbarine",60);
+    computer.placeShip("submarine",60);
     computer.placeShip("battleship",80);
-    displayShips(human);
-/*     attack(human,12);
-    attack(computer,80) */
-  /*   displayShips(); */
+   /*  displayShips(human); */
 }
-game();
+
+
+const human = createPlayer(prompt("choose a name"));
+const computer = createPlayer("computer");
+renderStartingPage(human);

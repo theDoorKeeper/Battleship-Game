@@ -1,5 +1,62 @@
+import { getCoordinates } from '../Helper functions/getCoordinates';
 import {createHtmlElement} from './createHtmlElement'
+import {getLength} from '../Helper functions/getLength';
 
+const renderStartingPage = (playerOne)=>{
+
+    let shipName = null;
+    const gameBoardContainer = document.querySelector("#gameboard-container");
+
+    const firstGameboard = createHtmlElement('div',`${playerOne.playerName}Gameboard`,['gameboard'],null);
+    gameBoardContainer.appendChild(firstGameboard);
+
+    for (let i = 1; i <= 100; i++) {
+        const square = createHtmlElement("div",i,[`${playerOne.playerName}square`],null);
+         square.addEventListener('click',e=>{
+            const displayArray=[];
+            let length = getLength(shipName);
+            playerOne.getShipArray().forEach(ship=>{
+                displayArray.push(...ship.shipCoordinates)
+            })
+            
+            const doesCollide = ()=>{
+                let collide  = false;
+                const coordinates = getCoordinates(Number(e.target.id), length);
+                coordinates.forEach(coordinate=>{
+                    if (displayArray.includes(coordinate)){
+                        collide=true;
+                        
+                    }
+                })
+                return collide 
+            }
+            
+             if(shipName && !displayArray.includes(Number(e.target.id)) && !doesCollide()  ){
+                 
+             playerOne.placeShip(shipName,Number(e.target.id));
+             displayShips(playerOne)
+             shipName=null;
+            }
+         }) 
+
+        firstGameboard.appendChild(square);
+        }
+        
+
+
+        const battleshipButton = createHtmlElement('button','battleship',['ship-button'],'battleship');
+        const submarineButton =  createHtmlElement('button','submarine',['ship-button'],'submarine');
+
+        gameBoardContainer.appendChild(battleshipButton);
+        gameBoardContainer.appendChild(submarineButton);
+
+        document.querySelectorAll('.ship-button').forEach(button =>{
+            button.addEventListener("click",(e)=>{
+                shipName=e.target.id;
+            })
+        })
+
+}
 const renderBoards = (playerOne,playerTwo) =>{
     const gameBoardContainer = document.querySelector("#gameboard-container");
 
@@ -48,14 +105,14 @@ const renderBoards = (playerOne,playerTwo) =>{
       })  
 
       squares.forEach(square=>{
-        player.getShipArray.forEach(ship=>{
-            if (ship.includes(Number(square.id))){
+        player.getShipArray().forEach(ship=>{
+            if (ship.shipCoordinates.includes(Number(square.id))){
                 square.classList.add(ship.name)
             }
         })
     
       }) 
-      
+
     }
 
 
