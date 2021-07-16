@@ -3,7 +3,7 @@ import {createHtmlElement} from './createHtmlElement'
 import {getLength} from '../Helper functions/getLength';
 
 
-const renderStartingPage = (playerOne)=>{
+const renderStartingPage = (playerOne,playerTwo)=>{
 
     let shipName = null;
     const gameBoardContainer = document.querySelector("#gameboard-container");
@@ -57,6 +57,7 @@ const renderStartingPage = (playerOne)=>{
             })
         })
 
+      
 }
 const renderBoards = (playerOne,playerTwo) =>{
     const gameBoardContainer = document.querySelector("#gameboard-container");
@@ -171,7 +172,10 @@ const renderBoards = (playerOne,playerTwo) =>{
                 displaySunkShips(squares,playerTwo);
                 
             }
-
+            const startGame = (playerOne,playerTwo)=>{
+                renderBoards(playerOne,playerTwo);
+                displayShips(playerOne)
+            }
 
 
 

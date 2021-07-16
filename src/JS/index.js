@@ -18,4 +18,6 @@ const game = () =>{
 
 const human = createPlayer(prompt("choose a name"));
 const computer = createPlayer("computer");
-renderStartingPage(human);
+renderStartingPage(human,computer);
+computer.placeShip("submarine",60);
+computer.placeShip("battleship",80);
