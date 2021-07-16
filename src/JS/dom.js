@@ -27,8 +27,9 @@ const renderBoards = (playerOne,playerTwo) =>{
     })
     secondGameboard.appendChild(square);
 
-    
 }
+
+
 
 }
 
@@ -44,7 +45,17 @@ const renderBoards = (playerOne,playerTwo) =>{
         if(displayArray.includes(Number(square.id))){
             square.textContent = "Ship"
         }
+      })  
+
+      squares.forEach(square=>{
+        player.getShipArray.forEach(ship=>{
+            if (ship.includes(Number(square.id))){
+                square.classList.add(ship.name)
+            }
+        })
+    
       }) 
+      
     }
 
 
@@ -103,12 +114,9 @@ const renderBoards = (playerOne,playerTwo) =>{
                 
             }
 
-            const placeShip =(name,player)=>{
-                player.placeShip("name")
-            }
 
 
 
  
-    export {displayShips,renderBoards}
+    export {displayShips,renderBoards,renderStartingPage}
 
