@@ -57,7 +57,11 @@ const renderStartingPage = (playerOne,playerTwo)=>{
             })
         })
 
-      
+        const startButton = createHtmlElement('button','start',['control-button'],'start game');
+        startButton.addEventListener("click",()=>{
+            startGame(playerOne,playerTwo)
+        })
+        gameBoardContainer.appendChild(startButton);
 }
 const renderBoards = (playerOne,playerTwo) =>{
     const gameBoardContainer = document.querySelector("#gameboard-container");
