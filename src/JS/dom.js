@@ -1,6 +1,7 @@
 import { getCoordinates } from '../Helper functions/getCoordinates';
 import {createHtmlElement} from './createHtmlElement'
 import {getLength} from '../Helper functions/getLength';
+import { getRandomNumber } from '../Helper functions/getRandomNumber';
 
 
 const renderStartingPage = (playerOne,playerTwo)=>{
@@ -84,7 +85,9 @@ const renderBoards = (playerOne,playerTwo) =>{
         if( !e.target.classList.contains("clicked" ) && !isGameOver(playerOne,playerTwo)){
           playRound(playerTwo,Number(e.target.id));
             e.target.classList.add("clicked");
-            isGameOver(playerOne, playerTwo)
+            isGameOver(playerOne, playerTwo);
+            computerRound(playerOne);
+            isGameOver(playerOne, playerTwo);
         }
                
     })
@@ -174,12 +177,24 @@ const renderBoards = (playerOne,playerTwo) =>{
                 attack(player,coordinate)
                 displayMissArray(squares,player);
                 displaySunkShips(squares,player);
+
             }
 
-            const computerRound =(player,coordinate)=>{
+            const computerRound =(player)=>{
+                const computerPlay = (coordinate) => { 
                 if (!player.getMissArray().includes(coordinate) && !player.getHitArray().includes(coordinate)){
-                    playRound(player,coordinate)
+                    playRound(player,coordinate);
+                    return false
+                    }
+                else return true
                 }
+
+                let tryAgain = true;
+                while (tryAgain){
+                    tryAgain = computerPlay(getRandomNumber())
+                }
+                
+
             }
 
             const startGame = (playerOne,playerTwo)=>{
