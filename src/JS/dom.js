@@ -2,6 +2,7 @@ import { getCoordinates } from '../Helper functions/getCoordinates';
 import {createHtmlElement} from './createHtmlElement'
 import {getLength} from '../Helper functions/getLength';
 
+
 const renderStartingPage = (playerOne)=>{
 
     let shipName = null;
@@ -30,7 +31,7 @@ const renderStartingPage = (playerOne)=>{
                 })
                 return collide 
             }
-            
+
              if(shipName && !displayArray.includes(Number(e.target.id)) && !doesCollide()  ){
                  
              playerOne.placeShip(shipName,Number(e.target.id));
@@ -59,7 +60,7 @@ const renderStartingPage = (playerOne)=>{
 }
 const renderBoards = (playerOne,playerTwo) =>{
     const gameBoardContainer = document.querySelector("#gameboard-container");
-
+    gameBoardContainer.innerHTML="";
     const firstGameboard = createHtmlElement('div',`${playerOne.playerName}Gameboard`,['gameboard'],null);
     gameBoardContainer.appendChild(firstGameboard);
 
