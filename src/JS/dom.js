@@ -5,8 +5,10 @@ import { getRandomNumber } from '../Helper functions/utilities';
 
 const renderStartingPage = (playerOne, playerTwo) => {
   let shipName = null;
-  const gameBoardContainer = document.querySelector('#gameboard-container');
-
+  const container = document.querySelector('.container');
+  const gameBoardContainer = createHtmlElement('div','gameboard-container',null,null);
+  container.innerHTML = '';
+  container.appendChild(gameBoardContainer)
   const firstGameboard = createHtmlElement('div', `${playerOne.playerName}Gameboard`, ['gameboard'], null);
   gameBoardContainer.appendChild(firstGameboard);
 
@@ -58,6 +60,7 @@ const renderStartingPage = (playerOne, playerTwo) => {
   });
   gameBoardContainer.appendChild(startButton);
 };
+
 const renderBoards = (playerOne, playerTwo) => {
   const gameBoardContainer = document.querySelector('#gameboard-container');
   gameBoardContainer.innerHTML = '';
