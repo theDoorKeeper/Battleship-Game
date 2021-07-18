@@ -143,11 +143,11 @@ const displaySunkShips = (squares, player) => {
 };
 const isGameOver = (playerOne, playerTwo) => {
   if (playerOne.hasLost()) {
-    alert(`${playerOne.playerName} has won  !`);
+    alert(`${playertwo.playerName} has won  !`);
     return true;
   }
   if (playerTwo.hasLost()) {
-    alert(`${playerTwo.playerName} has won !`);
+    alert(`${playerOne.playerName} has won !`);
     return true;
   }
 
