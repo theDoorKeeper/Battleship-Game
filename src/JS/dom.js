@@ -2,6 +2,28 @@ import { getCoordinates } from '../Helper functions/utilities';
 import { createHtmlElement } from './createHtmlElement';
 import { getLength } from '../Helper functions/utilities';
 import { getRandomNumber } from '../Helper functions/utilities';
+import { createPlayer } from "./player";
+
+const renderWelcomePage = ()=>{
+  const container = document.querySelector('.container');
+  const title = createHtmlElement('header','title',null,'Please Choose A name');
+  container.appendChild(title);
+
+  const playerNameInput  = createHtmlElement('input','playerName',null,null);
+  container.appendChild(playerNameInput);
+
+  const continueBtn = createHtmlElement('button','continue-btn',['btn'],'continue');
+  continueBtn.addEventListener('click', ()=>{
+    const playerName = playerNameInput.value;
+    const human = createPlayer(playerName);
+    const computer = createPlayer("computer");
+    renderStartingPage(human,computer);
+
+    computer.placeShip("submarine",60);
+    computer.placeShip("battleship",80);
+  })
+  container.appendChild(continueBtn);
+}
 
 const renderStartingPage = (playerOne, playerTwo) => {
   let shipName = null;
@@ -183,4 +205,4 @@ const startGame = (playerOne, playerTwo) => {
   displayShips(playerOne);
 };
 
-export { displayShips, renderBoards, renderStartingPage };
+export {renderWelcomePage };
