@@ -168,7 +168,7 @@ const attack = (player, coordinates) => {
   const squares = document.querySelectorAll(`.${player.playerName}square`);
   squares.forEach((square) => {
     if (player.getHitArray().includes(Number(square.id))) {
-      square.setAttribute('style', 'background-color: #1879c9;'); 
+      square.setAttribute('style', 'background-color: #353434;'); 
 
       const logo = createHtmlElement("img","explosion",['logo'],null)
       logo.src=target;
