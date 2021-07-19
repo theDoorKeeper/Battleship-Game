@@ -20,6 +20,7 @@ const renderWelcomePage = ()=>{
 
   const continueBtn = createHtmlElement('button','continue-btn',['btn'],'continue');
   continueBtn.addEventListener('click', ()=>{
+
     const playerName = playerNameInput.value;
     const human = createPlayer(playerName);
     const computer = createPlayer("computer");
@@ -149,7 +150,7 @@ const displayShips = (player) => {
 
   squares.forEach((square) => {
     if (displayArray.includes(Number(square.id))) {
-      square.textContent = 'Ship';
+      square.style.backgroundColor = '#4d4d4d';
     }
   });
 
@@ -164,7 +165,6 @@ const displayShips = (player) => {
 
 const attack = (player, coordinates) => {
   player.receiveAttack(coordinates);
-  console.log(player.playerName, coordinates);
   const squares = document.querySelectorAll(`.${player.playerName}square`);
   squares.forEach((square) => {
     if (player.getHitArray().includes(Number(square.id))) {
@@ -196,7 +196,18 @@ const displaySunkShips = (squares, player) => {
   });
   squares.forEach((square) => {
     if (sunkArray.includes(Number(square.id))) {
-      square.textContent = 'SUNK';
+
+      
+      square.setAttribute('style', 'background-color: #d41515;'); 
+
+      square.firstChild.src=explosion;
+
+      if (!square.firstChild.src===target){ 
+      square.appendChild(logo)
+      
+    }
+
+
     }
   });
 };
