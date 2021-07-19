@@ -6,9 +6,15 @@ const getLength = (name) =>{
     if (name === "submarine"){
         return 2
     }
-    else if (name === "battleship"){
+    else if (name === "carrier"){
         return 6
     }
+    else if (name === "battleship"){
+      return 4
+  }
+  else if (name === "cruiser"){
+    return 3
+}
 };
 
 const getCoordinates = (coordinate, length) => {
