@@ -17,10 +17,8 @@ test('works with (100) coordinate', () => {
   testingGameboard.receiveAttack(99);
   testingGameboard.receiveAttack(98);
   testingGameboard.receiveAttack(97);
-  testingGameboard.receiveAttack(96);
-  testingGameboard.receiveAttack(95);
 
-  expect( testingGameboard.getHitArray() ).toEqual( [100,99,98,97,96,95] );
+  expect( testingGameboard.getHitArray() ).toEqual( [100,99,98,97] );
 });
 
 
@@ -88,5 +86,5 @@ test('getHitArray returns the correct information', () => {
   testingGameboard.receiveAttack(15);
 
 
-  expect( testingGameboard.getHitArray() ).toEqual( [22,23,10,11,12,13,14,15] );
+  expect( testingGameboard.getHitArray() ).toEqual( [22,23,10,11,12,13] );
 });
