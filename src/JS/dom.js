@@ -68,12 +68,21 @@ const renderStartingPage = (playerOne, playerTwo) => {
     firstGameboard.appendChild(square);
   }
   const buttonWrapper = createHtmlElement("div",null,['btn-wrapper'],null);
+
   const battleshipButton = createHtmlElement('button', 'battleship', ['ship-button'], 'battleship');
   const submarineButton = createHtmlElement('button', 'submarine', ['ship-button'], 'submarine');
+  const cruiserButton = createHtmlElement('button', 'cruiser', ['ship-button'], 'cruiser');
+  const carrierButton = createHtmlElement('button', 'carrier', ['ship-button'], 'carrier');
+
+
+
+
   gameBoardContainer.appendChild(buttonWrapper);
 
   buttonWrapper.appendChild(battleshipButton);
   buttonWrapper.appendChild(submarineButton);
+  buttonWrapper.appendChild(cruiserButton);
+  buttonWrapper.appendChild(carrierButton);
 
   document.querySelectorAll('.ship-button').forEach((button) => {
     button.addEventListener('click', (e) => {
