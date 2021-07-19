@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #232323;
+    font-family: 'Black Ops One', cursive;
+}
+
+.header{
+    height: 5rem;
+    border:#343434 solid 5px;
+    border-radius: 8px;
+    background-color: #262626;
+    text-align: center;
+    color: #4d4d4d;
+    font-size: 3rem;
+}
+#welcome-page{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5rem;
+    border:#343434 solid 5px;
+    border-radius: 8px;
+    justify-content: space-around;
+    font-size: 3rem;
+    color: whitesmoke;
+    align-items: center;
+}
+input{
+    width: 50%;
+    height: 2.5rem;
+    background-color:#343434 ;
+    border:none;
+    border-radius: 8px;
+    font-size: 2.3rem;
+    font-family: 'Black Ops One', cursive;
+    
+}
+input:focus {
+	outline: none;
+  	border: 1px solid black;
+}
+button{
+    width: 30%;
+    border:none;
+    background:none;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 3rem;
+    font-family: 'Black Ops One', cursive;
+}
+button:hover{
+    color: #80ff00;
+}
+
+.btn-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.ship-btn{
+    font-size: 2rem;
+
+}
 #gameboard-container{
     margin: auto;
     border: black 1px solid;
@@ -6,6 +74,7 @@
     display: flex;
     padding: 15px;
     justify-content: space-around;
+    display: flex;
 }
 
 .gameboard{
