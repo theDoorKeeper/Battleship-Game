@@ -6,11 +6,15 @@ import { createPlayer } from "./player";
 
 const renderWelcomePage = ()=>{
   const container = document.querySelector('.container');
+
+  const welcomePage = createHtmlElement('div','welcome-page',null,null)
+  container.appendChild(welcomePage);
+
   const title = createHtmlElement('header','title',null,'Please Choose A name');
-  container.appendChild(title);
+  welcomePage.appendChild(title);
 
   const playerNameInput  = createHtmlElement('input','playerName',null,null);
-  container.appendChild(playerNameInput);
+  welcomePage.appendChild(playerNameInput);
 
   const continueBtn = createHtmlElement('button','continue-btn',['btn'],'continue');
   continueBtn.addEventListener('click', ()=>{
@@ -22,7 +26,7 @@ const renderWelcomePage = ()=>{
     computer.placeShip("submarine",60);
     computer.placeShip("battleship",80);
   })
-  container.appendChild(continueBtn);
+  welcomePage.appendChild(continueBtn);
 }
 
 const renderStartingPage = (playerOne, playerTwo) => {
@@ -63,12 +67,13 @@ const renderStartingPage = (playerOne, playerTwo) => {
 
     firstGameboard.appendChild(square);
   }
-
+  const buttonWrapper = createHtmlElement("div",null,['btn-wrapper'],null);
   const battleshipButton = createHtmlElement('button', 'battleship', ['ship-button'], 'battleship');
   const submarineButton = createHtmlElement('button', 'submarine', ['ship-button'], 'submarine');
+  gameBoardContainer.appendChild(buttonWrapper);
 
-  gameBoardContainer.appendChild(battleshipButton);
-  gameBoardContainer.appendChild(submarineButton);
+  buttonWrapper.appendChild(battleshipButton);
+  buttonWrapper.appendChild(submarineButton);
 
   document.querySelectorAll('.ship-button').forEach((button) => {
     button.addEventListener('click', (e) => {
