@@ -3,6 +3,8 @@ import { createHtmlElement } from './createHtmlElement';
 import { getLength } from '../Helper functions/utilities';
 import { getRandomNumber } from '../Helper functions/utilities';
 import { createPlayer } from "./player";
+import explosion from "../assets/explosion.png";
+import target from "../assets/target.png";
 
 const renderWelcomePage = ()=>{
   const container = document.querySelector('.container');
@@ -95,7 +97,7 @@ const renderStartingPage = (playerOne, playerTwo) => {
       shipName = e.target.id;
       counter+=1
       }
-      
+
       e.target.style.color="#343434";
     });
 
@@ -166,7 +168,13 @@ const attack = (player, coordinates) => {
   const squares = document.querySelectorAll(`.${player.playerName}square`);
   squares.forEach((square) => {
     if (player.getHitArray().includes(Number(square.id))) {
-      square.setAttribute('style', 'background-color: red;');
+      square.setAttribute('style', 'background-color: #1879c9;'); 
+
+      const logo = createHtmlElement("img","explosion",['logo'],null)
+      logo.src=target;
+
+      if (!square.firstChild)
+      square.appendChild(logo)
     }
   });
 };
