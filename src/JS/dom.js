@@ -85,9 +85,21 @@ const renderStartingPage = (playerOne, playerTwo) => {
   buttonWrapper.appendChild(carrierButton);
 
   document.querySelectorAll('.ship-button').forEach((button) => {
+    let counter = 0;
+
+   
+
     button.addEventListener('click', (e) => {
+    if (counter <1 ){
+     
       shipName = e.target.id;
+      counter+=1
+      }
+      
+      e.target.style.color="#343434";
     });
+
+  
   });
 
   const startButton = createHtmlElement('button', 'start', ['control-button'], 'start game');
