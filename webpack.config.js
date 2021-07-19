@@ -15,18 +15,6 @@ module.exports = {
     publicPath: '',
     filename: 'bundle.js'
   },
-module: {
-
-  rules: [
-    {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ]
-    }
-  ]
-},
 
 module: {
   rules: [
@@ -39,7 +27,22 @@ module: {
           presets: ['@babel/preset-env']
         }
       }
-    }
+    },
+    {
+      test: /\.(png|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+        },
+      ],
+    },
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    },  
   ]
 },
 devtool: 'inline-source-map',
