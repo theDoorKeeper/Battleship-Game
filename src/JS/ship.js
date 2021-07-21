@@ -1,25 +1,25 @@
- const createShip = (name, length, coordinates) => {
-    const shipCoordinates = [...coordinates]
-    const hitArray = [];
+const createShip = (name, length, coordinates) => {
+  const shipCoordinates = [...coordinates];
+  const hitArray = [];
 
-        const hit = (hitCoordinates) => {
-            coordinates.forEach(shipSquare => {
-                if (shipSquare === hitCoordinates){
-                    hitArray.push(hitCoordinates);
-                }
-            });
-        }
+  const hit = (hitCoordinates) => {
+    coordinates.forEach((shipSquare) => {
+      if (shipSquare === hitCoordinates) {
+        hitArray.push(hitCoordinates);
+      }
+    });
+  };
 
-        const isSunk = ()=>{
-            if(hitArray.length===length){
-                return true
-            }
-            return false
+  const isSunk = () => {
+    if (hitArray.length === length) {
+      return true;
+    }
+    return false;
+  };
 
-        }
-        
-        return {name, hit, isSunk, shipCoordinates, hitArray}
+  return {
+    name, hit, isSunk, shipCoordinates, hitArray,
+  };
+};
 
-}
-
-export {createShip}
+export default createShip;

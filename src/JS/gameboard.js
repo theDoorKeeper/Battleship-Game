@@ -1,6 +1,5 @@
-import { getCoordinates } from '../Helper functions/utilities';
-import { getLength } from '../Helper functions/utilities';
-import { createShip } from './ship';
+import { getCoordinates, getLength } from '../Helper functions/utilities';
+import createShip from './ship';
 
 const createGameboard = () => {
   const shipArray = [];
@@ -55,4 +54,4 @@ const createGameboard = () => {
   };
 };
 
-export { createGameboard };
+export default createGameboard;

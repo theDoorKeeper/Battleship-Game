@@ -1,3 +1,3 @@
-import {renderWelcomePage } from "./dom";
+import renderWelcomePage from './dom';
 
 renderWelcomePage();

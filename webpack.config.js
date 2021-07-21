@@ -13,43 +13,43 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/Battleship-Game',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
 
-module: {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      }
-    },
-    {
-      test: /\.(png|jpe?g|gif)$/i,
-      use: [
-        {
-          loader: 'file-loader',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
-      ],
-    },
-    {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ]
-    },  
-  ]
-},
-devtool: 'inline-source-map',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  devtool: 'inline-source-map',
 
   // Default mode for Webpack is production.
   // Depending on mode Webpack will apply different things
-  // on the final bundle. For now, we don't need production's JavaScript 
+  // on the final bundle. For now, we don't need production's JavaScript
   // minifying and other things, so let's set mode to development
-  mode: 'development'
+  mode: 'development',
 };
