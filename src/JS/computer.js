@@ -1,4 +1,4 @@
-import { getRandomNumber } from "../Helper functions/getRandomNumber";
+import { getRandomNumber } from "../Helper functions/utilities";
 
     const coordinateArray = []
 

@@ -5,6 +5,7 @@ import { getRandomNumber } from '../Helper functions/utilities';
 import { createPlayer } from "./player";
 import explosion from "../assets/explosion.png";
 import target from "../assets/target.png";
+import { getComputerCoordinate } from './computer';
 
 const renderWelcomePage = ()=>{
   const container = document.querySelector('.container');
@@ -26,8 +27,10 @@ const renderWelcomePage = ()=>{
     const computer = createPlayer("computer");
     renderStartingPage(human,computer);
 
-    computer.placeShip("submarine",60);
-    computer.placeShip("battleship",80);
+    computer.placeShip("submarine",15);
+    computer.placeShip("battleship",30);
+    computer.placeShip("carrier",1);
+    computer.placeShip("cruiser",95);
   })
   welcomePage.appendChild(continueBtn);
 }
@@ -162,7 +165,7 @@ const renderBoards = (playerOne, playerTwo) => {
       if (!e.target.classList.contains('clicked') && !isGameOver(playerOne, playerTwo)) {
 
         if (playerOneTurn){
-        whosTurn.textContent=`${playerTwo.playerName}'s turn !`
+        whosTurn.innerHTML=`${playerTwo.playerName}'s turn !`;
         e.target.classList.add('clicked');
         playRound(playerTwo, Number(e.target.id));   
         isGameOver(playerOne, playerTwo);
@@ -170,7 +173,7 @@ const renderBoards = (playerOne, playerTwo) => {
         playerOneTurn=false;
 
          setTimeout((()=>{
-          whosTurn.textContent=`${playerOne.playerName}'s turn !`
+          whosTurn.innerHTML=`${playerOne.playerName}'s turn !`
           computerRound(playerOne);
           isGameOver(playerOne, playerTwo);
           playerOneTurn=true
