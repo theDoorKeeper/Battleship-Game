@@ -90,12 +90,12 @@ const getCoordinates = (coordinate, length) => {
       }      
     }
 
-    else if (coordinate>90 && lastCoordinate<=100) {
+    else if (coordinate>90 && lastCoordinate<=101) {
       for (let i = 0; i < length; i++) {
         coordinateArray.push(coordinate + i);
       }      
     }
-    else if (coordinate>100) {
+    else if (lastCoordinate>100) {
       for (let i = 0; i < length; i++) {
         coordinateArray.push(coordinate - i);
       }      
