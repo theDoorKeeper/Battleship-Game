@@ -143,11 +143,13 @@ const renderBoards = (playerOne, playerTwo) => {
     const square = createHtmlElement('div', i, [`${playerTwo.playerName}square`], null);
     square.addEventListener('click', (e) => {
       if (!e.target.classList.contains('clicked') && !isGameOver(playerOne, playerTwo)) {
+        
         playRound(playerTwo, Number(e.target.id));
         e.target.classList.add('clicked');
         isGameOver(playerOne, playerTwo);
         computerRound(playerOne);
         isGameOver(playerOne, playerTwo);
+        
       }
     });
     secondGameboard.appendChild(square);
@@ -225,12 +227,20 @@ const displaySunkShips = (squares, player) => {
   });
 };
 const isGameOver = (playerOne, playerTwo) => {
+  const gameOverScreen = createHtmlElement('div','overlay',['overlay'],null);
   if (playerOne.hasLost()) {
-    alert(`${playertwo.playerName} has won  !`);
+    gameOverScreen.textContent=`${playerTwo.playerName} Destroyed your ships, You Lose !`;
+    gameOverScreen.style.color='rgb(226, 7, 7)';
+    window.document.body.appendChild(gameOverScreen)
+    gameOverScreen.style.display="flex";
     return true;
   }
-  if (playerTwo.hasLost()) {
-    alert(`${playerOne.playerName} has won !`);
+  else if (playerTwo.hasLost()) {
+    console.log(gameOverScreen)
+    gameOverScreen.textContent=`${playerOne.playerName} Destroyed the Computer's ships, You Win !`;
+    window.document.body.appendChild(gameOverScreen);
+    gameOverScreen.style.color='#2345da';
+    gameOverScreen.style.display="flex";
     return true;
   }
 
