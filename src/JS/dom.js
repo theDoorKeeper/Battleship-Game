@@ -65,6 +65,7 @@ const renderStartingPage = (playerOne, playerTwo) => {
         playerOne.placeShip(shipName, Number(e.target.id));
         displayShips(playerOne);
         shipName = null;
+        grayOutBtn(playerOne)
       }
     });
 
@@ -239,7 +240,7 @@ const displaySunkShips = (squares, player) => {
 };
 
 const grayOutBtn = (player)=>{     
-  playerOne.getShipArray().forEach(ship=>{
+  player.getShipArray().forEach(ship=>{
   const usedBtn = document.querySelector(`#${ship.name}`);
   usedBtn.style.color='#343434'
 
