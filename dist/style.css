@@ -126,24 +126,44 @@ button:hover{
     color: rgb(226, 7, 7);
 }
 
+
+
+
 .turn {
     color: whitesmoke;
     text-align: center;
-    margin-top: -5rem;
-    font-size: 4rem;
+    font-size: 3rem;
+    overflow: hidden; 
+    border-right: .15em solid whitesmoke; 
+    white-space: nowrap; 
+    margin: -5rem auto; 
+    letter-spacing: .25em;
+    animation: 
+      typing 3.5s steps(60, end) ,
+      blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: whitesmoke; }
 }
 #overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
+    position: fixed; 
+    display: none; 
+    width: 100%;
+    height: 100%; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2; 
+    cursor: pointer;
     color: whitesmoke;
     font-size: 2rem;
     justify-content: center;
