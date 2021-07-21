@@ -88,15 +88,25 @@ const renderStartingPage = (playerOne, playerTwo) => {
   buttonWrapper.appendChild(carrierButton);
 
   document.querySelectorAll('.ship-button').forEach((button) => {
-    let counter = 0;
 
     button.addEventListener('click', (e) => {
-    if (counter <1 ){
+
+      const shipArray = [];     
+
+      playerOne.getShipArray().forEach(ship=>{
+        shipArray.push(ship.name);
+        const usedBtn = document.querySelector(`#${ship.name}`);
+        usedBtn.style.color='#343434'
+
+      })
+
+    if (!shipArray.includes(e.target.id)){
+      console.log('dosent include ')
       shipName = e.target.id;
-      counter+=1
+      /* e.target.style.color="#343434"; */
       }
 
-      e.target.style.color="#343434";
+      
     });
 
   
@@ -104,8 +114,11 @@ const renderStartingPage = (playerOne, playerTwo) => {
 
   const startButton = createHtmlElement('button', 'start', ['control-button'], 'start game');
   startButton.addEventListener('click', () => {
+
     if(playerOne.getShipArray().length===4){
-    startGame(playerOne, playerTwo);}
+    startGame(playerOne, playerTwo);
+  }
+
   });
   gameBoardContainer.appendChild(startButton);
 };
@@ -224,6 +237,14 @@ const displaySunkShips = (squares, player) => {
     }
   });
 };
+
+const grayOutBtn = (player)=>{     
+  playerOne.getShipArray().forEach(ship=>{
+  const usedBtn = document.querySelector(`#${ship.name}`);
+  usedBtn.style.color='#343434'
+
+})}
+
 const isGameOver = (playerOne, playerTwo) => {
   const gameOverScreen = createHtmlElement('div','overlay',['overlay'],null);
   if (playerOne.hasLost()) {
