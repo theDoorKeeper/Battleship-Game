@@ -16,7 +16,7 @@ const getLength = (name) =>{
     return 3
 }
 };
-
+/* 
 const getCoordinates = (coordinate, length) => {
     const coordinateArray = [];
   
@@ -29,6 +29,81 @@ const getCoordinates = (coordinate, length) => {
         coordinateArray.push(coordinate + i);
       }
     }
+    return coordinateArray;
+  }; */
+
+  const getCoordinates = (coordinate, length) => {
+    const coordinateArray = [];
+    let lastCoordinate = coordinate+length;
+
+    if (coordinate >=1 && lastCoordinate<=11 ) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }
+    }
+
+     else if (coordinate > 10 && lastCoordinate<=21) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>20 && lastCoordinate<=31) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>30 && lastCoordinate<=41) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>40 && lastCoordinate<=51) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>50 && lastCoordinate<=61) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>60 && lastCoordinate<=71) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>70 && lastCoordinate<=81) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>80 && lastCoordinate<=91) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+
+    else if (coordinate>90 && lastCoordinate<=100) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate + i);
+      }      
+    }
+    else if (coordinate>100) {
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate - i);
+      }      
+    }
+    else {
+      return  
+    }
+
     return coordinateArray;
   };
 
