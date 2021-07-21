@@ -175,7 +175,7 @@ const renderBoards = (playerOne, playerTwo) => {
           isGameOver(playerOne, playerTwo);
           playerOneTurn=true
 
-        }),800)
+        }),1000)
 
       }
        
