@@ -149,6 +149,11 @@ const renderBoards = (playerOne, playerTwo) => {
   const secondGameboardTitle = createHtmlElement('div', `second-title`, ['gameboard-title'], `${playerTwo.playerName}'s Board`);
   secondFrame.appendChild(secondGameboardTitle);
   
+  const container = document.querySelector('.container');
+  const whosTurn = createHtmlElement('div','title-turn',['turn']);
+  whosTurn.textContent=`${playerOne.playerName}'s turn !`
+  container.appendChild(whosTurn)
+
 
   let playerOneTurn  = true;
   for (let i = 1; i <= 100; i++) {
@@ -157,6 +162,7 @@ const renderBoards = (playerOne, playerTwo) => {
       if (!e.target.classList.contains('clicked') && !isGameOver(playerOne, playerTwo)) {
 
         if (playerOneTurn){
+        whosTurn.textContent=`${playerTwo.playerName}'s turn !`
         e.target.classList.add('clicked');
         playRound(playerTwo, Number(e.target.id));   
         isGameOver(playerOne, playerTwo);
@@ -164,7 +170,7 @@ const renderBoards = (playerOne, playerTwo) => {
         playerOneTurn=false;
 
          setTimeout((()=>{
-
+          whosTurn.textContent=`${playerOne.playerName}'s turn !`
           computerRound(playerOne);
           isGameOver(playerOne, playerTwo);
           playerOneTurn=true
