@@ -148,18 +148,32 @@ const renderBoards = (playerOne, playerTwo) => {
 
   const secondGameboardTitle = createHtmlElement('div', `second-title`, ['gameboard-title'], `${playerTwo.playerName}'s Board`);
   secondFrame.appendChild(secondGameboardTitle);
+  
 
-
+  let playerOneTurn  = true;
   for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement('div', i, [`${playerTwo.playerName}square`], null);
     square.addEventListener('click', (e) => {
       if (!e.target.classList.contains('clicked') && !isGameOver(playerOne, playerTwo)) {
-        
-        playRound(playerTwo, Number(e.target.id));
+
+        if (playerOneTurn){
         e.target.classList.add('clicked');
+        playRound(playerTwo, Number(e.target.id));   
         isGameOver(playerOne, playerTwo);
-        computerRound(playerOne);
-        isGameOver(playerOne, playerTwo);
+
+        playerOneTurn=false;
+
+         setTimeout((()=>{
+
+          computerRound(playerOne);
+          isGameOver(playerOne, playerTwo);
+          playerOneTurn=true
+
+        }),800)
+
+      }
+       
+        
         
       }
     });
