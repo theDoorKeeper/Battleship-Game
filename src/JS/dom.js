@@ -66,6 +66,7 @@ const renderStartingPage = (playerOne, playerTwo) => {
         displayShips(playerOne);
         shipName = null;
         grayOutBtn(playerOne)
+        highLightBtn("start", playerOne)
       }
     });
 
@@ -102,9 +103,7 @@ const renderStartingPage = (playerOne, playerTwo) => {
       })
 
     if (!shipArray.includes(e.target.id)){
-      console.log('dosent include ')
       shipName = e.target.id;
-      /* e.target.style.color="#343434"; */
       }
 
       
@@ -245,6 +244,15 @@ const grayOutBtn = (player)=>{
   usedBtn.style.color='#343434'
 
 })}
+
+const highLightBtn = (btName,playerOne)=>{
+  if(playerOne.getShipArray().length===4){
+
+  const btn = document.querySelector(`#${btName}`);
+  btn.style.color="whitesmoke"
+
+  }
+}
 
 const isGameOver = (playerOne, playerTwo) => {
   const gameOverScreen = createHtmlElement('div','overlay',['overlay'],null);
