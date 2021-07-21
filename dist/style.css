@@ -126,6 +126,12 @@ button:hover{
     color: rgb(226, 7, 7);
 }
 
+.turn {
+    color: whitesmoke;
+    text-align: center;
+    margin-top: -5rem;
+    font-size: 4rem;
+}
 #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
