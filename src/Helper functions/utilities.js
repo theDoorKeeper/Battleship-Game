@@ -101,7 +101,9 @@ const getCoordinates = (coordinate, length) => {
       }      
     }
     else {
-      return  
+      for (let i = 0; i < length; i++) {
+        coordinateArray.push(coordinate - i);
+      }  
     }
 
     return coordinateArray;
