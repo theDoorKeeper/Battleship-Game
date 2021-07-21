@@ -115,16 +115,29 @@ const renderStartingPage = (playerOne, playerTwo) => {
 const renderBoards = (playerOne, playerTwo) => {
   const gameBoardContainer = document.querySelector('#gameboard-container');
   gameBoardContainer.innerHTML = '';
+  const firstFrame = createHtmlElement('div', `${playerOne.playerName}frame`, ['frame'], null);
+
   const firstGameboard = createHtmlElement('div', `${playerOne.playerName}Gameboard`, ['gameboard'], null);
-  gameBoardContainer.appendChild(firstGameboard);
+  firstFrame.appendChild(firstGameboard);
+  gameBoardContainer.appendChild(firstFrame);
+
+  const firstGameboardTitle = createHtmlElement('div', `first-title`, ['gameboard-title'], `${playerOne.playerName}'s Board`);
+  firstFrame.appendChild(firstGameboardTitle);
 
   for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement('div', i, [`${playerOne.playerName}square`], null);
     firstGameboard.appendChild(square);
   }
 
+  const secondFrame = createHtmlElement('div', `${playerOne.playerName}frame`, ['frame'], null);
+
   const secondGameboard = createHtmlElement('div', `${playerTwo.playerName}Gameboard`, ['gameboard'], null);
-  gameBoardContainer.appendChild(secondGameboard);
+  secondFrame.appendChild(secondGameboard);
+  gameBoardContainer.appendChild(secondFrame);
+
+  const secondGameboardTitle = createHtmlElement('div', `second-title`, ['gameboard-title'], `${playerTwo.playerName}'s Board`);
+  secondFrame.appendChild(secondGameboardTitle);
+
 
   for (let i = 1; i <= 100; i++) {
     const square = createHtmlElement('div', i, [`${playerTwo.playerName}square`], null);
