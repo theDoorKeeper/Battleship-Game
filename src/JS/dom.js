@@ -90,11 +90,8 @@ const renderStartingPage = (playerOne, playerTwo) => {
   document.querySelectorAll('.ship-button').forEach((button) => {
     let counter = 0;
 
-   
-
     button.addEventListener('click', (e) => {
     if (counter <1 ){
-     
       shipName = e.target.id;
       counter+=1
       }
@@ -107,7 +104,8 @@ const renderStartingPage = (playerOne, playerTwo) => {
 
   const startButton = createHtmlElement('button', 'start', ['control-button'], 'start game');
   startButton.addEventListener('click', () => {
-    startGame(playerOne, playerTwo);
+    if(playerOne.getShipArray().length===4){
+    startGame(playerOne, playerTwo);}
   });
   gameBoardContainer.appendChild(startButton);
 };
